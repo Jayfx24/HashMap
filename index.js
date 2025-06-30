@@ -20,9 +20,7 @@ export class HashMap {
 
   set(key, value) {
     const index = this.hash(key);
-    if (index < 0 || index >= this.bucket.length) {
-      throw new Error("Trying to access index out of bounds");
-    }
+    
     // if beyond load increase the capacity 2X
     // console.log(index)
 
@@ -86,8 +84,8 @@ export class HashMap {
     return this.size;
   }
   clear() {
-    console.log(this.bucket);
-    this.bucket = new Array(this.currentLimit).fill(null);
+   
+    this.bucket = new Array(this.capacity).fill(null);
     console.log(this.bucket);
   }
 
